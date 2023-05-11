@@ -3,6 +3,7 @@ import apiClient from '../Services/api-client';
 import { CanceledError } from 'axios';
 import useData from './useData';
 import { Genre } from './useGenres';
+import { GameQuery } from '../App';
 
 export interface Platfrom {
   id: number;
@@ -17,14 +18,16 @@ export interface Games {
   parent_platforms: { platform: Platfrom }[];
   metacritic: number;
 }
-const useGames = (
-  selectedGenre: Genre | null,
-  selectedPlatform: Platfrom | null
-) =>
+const useGames = (gameQuery: GameQuery) =>
   useData<Games>(
     '/games',
-    { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
-    [selectedGenre?.id, selectedPlatform?.id]
+    {
+      params: {
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+      },
+    },
+    [gameQuery]
   );
 
 export default useGames;
