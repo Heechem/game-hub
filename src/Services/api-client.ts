@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 export interface FetchResponses<T> {
+  next: string | null;
   count: number;
   results: T[];
 }

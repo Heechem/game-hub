@@ -16,7 +16,7 @@ import { BsGlobe } from "react-icons/bs";
 import { IconManifest, IconType } from "react-icons";
 
 interface Props {
-  platforms: Platfrom[];
+  platforms: Platform[];
 }
 
 const PlatformIconList = ({ platforms }: Props) => {
