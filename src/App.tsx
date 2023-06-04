@@ -1,17 +1,17 @@
-import { Box, Flex, Grid, GridItem, HStack, Show } from '@chakra-ui/react';
-import NavBar from './components/NavBar';
-import GameGrid from './components/GameGrid';
-import GenreList from './components/GenreList';
-import { useState } from 'react';
-import { Genre } from './hooks/useGenres';
-import PlatformSelector from './components/PlatformSelector';
-import { Platfrom } from './hooks/useGames';
-import SortSelector from './components/SortSelector';
-import GameHeading from './components/GameHeading';
+import { Box, Flex, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import NavBar from "./components/NavBar";
+import GameGrid from "./components/GameGrid";
+import GenreList from "./components/GenreList";
+import { useState } from "react";
+import { Genre } from "./hooks/useGenres";
+import PlatformSelector from "./components/PlatformSelector";
+import { Platform } from "./hooks/usePlatforms";
+import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
   genre: Genre | null;
-  platform: Platfrom | null;
+  platform: Platform | null;
   sortOrder: string;
   searchText: string;
 }
@@ -26,19 +26,22 @@ function App() {
           lg: `"nav nav" "aside main"`,
         }}
         templateColumns={{
-          base: '1fr',
-          lg: '200px 1fr',
+          base: "1fr",
+          lg: "200px 1fr",
         }}
       >
-        <GridItem area='nav'>
+        <GridItem area="nav">
           <NavBar
             onSearch={(searchText) =>
               setGameQuery({ ...gameQuery, searchText })
             }
           />
         </GridItem>
-        <Show above='lg'>
-          <GridItem area='aside' px={5}>
+        <Show above="lg">
+          <GridItem
+            area="aside"
+            px={5}
+          >
             <GenreList
               selectedGenre={gameQuery.genre}
               onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
@@ -46,7 +49,7 @@ function App() {
           </GridItem>
         </Show>
 
-        <GridItem area='main'>
+        <GridItem area="main">
           <Box pl={2}>
             <GameHeading gameQuery={gameQuery} />
             <Flex mb={5}>

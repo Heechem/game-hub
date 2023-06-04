@@ -1,16 +1,9 @@
-import {
-  SimpleGrid,
-  Skeleton,
-  Text,
-  Textarea,
-  useStatStyles,
-} from '@chakra-ui/react';
-import useGames, { Platfrom } from '../hooks/useGames';
-import GameCard from './GameCard';
-import GameCardSkeloton from './GameCardSkeloton';
-import GameCardContainer from './GameCardContainer';
-import { Genre } from '../hooks/useGenres';
-import { GameQuery } from '../App';
+import { SimpleGrid, Text } from "@chakra-ui/react";
+import { GameQuery } from "../App";
+import useGames from "../hooks/useGames";
+import GameCard from "./GameCard";
+import GameCardContainer from "./GameCardContainer";
+import GameCardSkeloton from "./GameCardSkeloton";
 
 interface Props {
   gameQeury: GameQuery;
@@ -22,7 +15,11 @@ const GameGrid = ({ gameQeury }: Props) => {
 
   if (error) return <Text>{error.message}</Text>;
   return (
-    <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} p='12px' spacing={6}>
+    <SimpleGrid
+      columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+      p="12px"
+      spacing={6}
+    >
       {isLoading &&
         skeletons.map((skeleton) => (
           <GameCardContainer key={skeleton}>
