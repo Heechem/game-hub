@@ -13,6 +13,8 @@ export interface Games {
   metacritic: number;
   rating_top: number;
   rating: number;
+  slug: string;
+  description_raw: string;
 }
 const useGames = () => {
   const gameQuery = useGameQueryStore((s) => s.gameQuery);
