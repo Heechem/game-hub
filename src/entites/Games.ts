@@ -10,4 +10,5 @@ export interface Games {
   rating: number;
   slug: string;
   description_raw: string;
+  description: string;
 }

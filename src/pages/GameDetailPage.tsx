@@ -4,6 +4,9 @@ import useGame from "../hooks/useGame";
 import { Heading, Spinner, Text } from "@chakra-ui/react";
 import GameCardSkeloton from "../components/GameCardSkeloton";
 
+import { SiExercism } from "react-icons/si";
+import ExpandableText from "../components/ExpandableText";
+
 const GameDetailPage = () => {
   const { slug } = useParams();
   const { data: game, isLoading, error } = useGame(slug!);
@@ -14,8 +17,8 @@ const GameDetailPage = () => {
 
   return (
     <>
-      <Heading> {game.name} </Heading>
-      <Text> {game.description_raw} </Text>
+      <Heading>{game.name}</Heading>
+      <ExpandableText>{game.description_raw}</ExpandableText>
     </>
   );
 };
