@@ -1,7 +1,7 @@
 # game-hub
 Game Hub is the first course that Im taking for ReactJs
 
-Followed Mosh all along to build this web site with  **TypeScript** and **ReactJs**
+Build his web site with  **TypeScript** and **ReactJs** usign **RAWG API**
 
 ## Live Demo :
 https://game-hub-test.netlify.app/ 
